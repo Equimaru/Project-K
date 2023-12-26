@@ -38,41 +38,41 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
-  - name: New Layer 1
+  - name: Background Layer 1
     uniqueID: 195198917
     locked: 0
-  - name: New Layer 2
+  - name: Background Layer 2
     uniqueID: 168355951
     locked: 0
-  - name: New Layer 3
+  - name: Background Layer 3
     uniqueID: 1578396723
     locked: 0
-  - name: New Layer 4
+  - name: Background Layer 4
     uniqueID: 839904853
     locked: 0
-  - name: New Layer 5
+  - name: Background Layer 5
     uniqueID: 1215331665
     locked: 0
-  - name: New Layer 6
+  - name: Background Layer 6
     uniqueID: 4205690545
     locked: 0
-  - name: New Layer 7
+  - name: Background Layer 7
     uniqueID: 3483169401
     locked: 0
-  - name: New Layer 8
+  - name: Background Layer 8
     uniqueID: 229796603
     locked: 0
-  - name: New Layer 9
+  - name: Background Layer 9
     uniqueID: 1673496661
     locked: 0
-  - name: New Layer 10
+  - name: Background Layer 10
     uniqueID: 538138951
     locked: 0
-  - name: New Layer 11
+  - name: Background Layer 11
     uniqueID: 764155063
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: New Layer 12
     uniqueID: 998971235
