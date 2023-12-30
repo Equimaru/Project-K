@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameInput : MonoBehaviour
 {
@@ -21,4 +22,9 @@ public class GameInput : MonoBehaviour
         return inputVector;
     }
 
+    public bool GetAttackInteraction()
+    {
+        bool isAttacking = playerInputActions.Player.Attack.ReadValue<float>() != 0;
+        return isAttacking;
+    }
 }
