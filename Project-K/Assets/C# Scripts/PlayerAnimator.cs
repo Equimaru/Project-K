@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-
     private const string IS_RUNNING = "IsRunning";
-    private const string IS_ATTACKING = "IsAttacking";
 
-    [SerializeField] private Player player;
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerCombat playerCombat;
 
     private Animator animator;
 
@@ -19,7 +18,8 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Update()
     {
-        animator.SetBool(IS_RUNNING, player.IsRunning());
-        animator.SetBool(IS_ATTACKING, player.IsAttacking());
+        animator.SetBool(IS_RUNNING, playerMovement.PlayerIsRunning());
+        if (playerCombat.PlayerIsAttacking())
+        animator.SetTrigger("IsAttacking");
     }
 }

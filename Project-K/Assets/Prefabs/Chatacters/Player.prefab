@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &908464920331408893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5990485545806719334}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5990485545806719334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908464920331408893}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.666, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1741847749883295143}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2767454967172897063
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +106,7 @@ SpriteRenderer:
   m_SortingLayerID: 998971235
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1280915012, guid: 1810d89d9999a4e48a68c184317cf3f2, type: 3}
+  m_Sprite: {fileID: 608434830, guid: 18d4920115128e34c8688c8b3a15a827, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,7 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6cf93344cf540a4986c740e002a8916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4899320172136058137}
+  playerMovement: {fileID: 4899320172136058137}
+  playerCombat: {fileID: 6774907750911642404}
 --- !u!1 &3795865568732010367
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,8 +164,9 @@ GameObject:
   - component: {fileID: 1734549191907353758}
   - component: {fileID: 3965545201365491538}
   - component: {fileID: 4899320172136058137}
+  - component: {fileID: 6774907750911642404}
   m_Layer: 0
-  m_Name: Player_PF
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,11 +181,12 @@ Transform:
   m_GameObject: {fileID: 3795865568732010367}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4491549543544813460}
+  - {fileID: 5990485545806719334}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1734549191907353758
@@ -208,14 +242,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3795865568732010367}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -239,21 +273,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad81b84e8480664ea89221ed7099e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 5
   gameInput: {fileID: 0}
-  collisionOffset: 0.05
-  movementFilter:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
   isRunning: 0
+--- !u!114 &6774907750911642404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3795865568732010367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbe15b6672ef0f4d95e58c1e182729e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInput: {fileID: 0}
+  interactLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  attackPoint: {fileID: 5990485545806719334}
+  attackRadius: 3

@@ -6,12 +6,20 @@ using UnityEngine.UI;
 public class GameInput : MonoBehaviour
 {
 
+    private bool isAttacking;
 
     private PlayerInputActions playerInputActions;
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+
+        playerInputActions.Player.Attack.performed += Attack_performed;
+    }
+
+    private void Attack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        isAttacking = true;
     }
 
     public Vector2 GetMovementVectorNormalized()
@@ -22,9 +30,10 @@ public class GameInput : MonoBehaviour
         return inputVector;
     }
 
-    public bool GetAttackInteraction()
+    public bool IsPlayerAttacking()
     {
-        bool isAttacking = playerInputActions.Player.Attack.ReadValue<float>() != 0;
-        return isAttacking;
+        bool isPlayerAttacking = isAttacking;
+        isAttacking = false;
+        return isPlayerAttacking;
     }
 }
