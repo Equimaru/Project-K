@@ -7,6 +7,7 @@ public class GameInput : MonoBehaviour
 {
 
     private bool isAttacking;
+    private bool isInteracting;
 
     private PlayerInputActions playerInputActions;
     private void Awake()
@@ -15,6 +16,12 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Enable();
 
         playerInputActions.Player.Attack.performed += Attack_performed;
+        playerInputActions.Player.Interact.performed += Interact_performed;
+    }
+
+    private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        isInteracting = true;
     }
 
     private void Attack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -35,5 +42,12 @@ public class GameInput : MonoBehaviour
         bool isPlayerAttacking = isAttacking;
         isAttacking = false;
         return isPlayerAttacking;
+    }
+
+    public bool IsPlayerInteracting()
+    {
+        bool isPlayerInteracting = isInteracting;
+        isInteracting = false;
+        return isPlayerInteracting;
     }
 }

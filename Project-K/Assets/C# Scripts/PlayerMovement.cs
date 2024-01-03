@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isRunning;
 
-    //private Vector2 lastInteractDir;
+    private Vector2 lastInteractDir;
 
     private void Update()
     {
@@ -24,8 +24,6 @@ public class PlayerMovement : MonoBehaviour
     private void PlayerMove() 
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-
-        //Debug.Log(inputVector);
 
         if (inputVector.x > 0f)
         {
@@ -42,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         if (MoveDir != Vector3.zero)
         {
             isRunning = true;
-            //lastInteractDir = MoveDir;
+            lastInteractDir = MoveDir;
         }
         else
         {
@@ -61,5 +59,10 @@ public class PlayerMovement : MonoBehaviour
     public bool PlayerIsRunning()
     {
         return isRunning;
+    }
+
+    public Vector2 LastPlayerInteractDir()
+    {
+        return lastInteractDir;
     }
 }

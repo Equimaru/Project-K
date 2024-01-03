@@ -7,8 +7,6 @@ using UnityEngine.EventSystems;
 public class PlayerCombat : MonoBehaviour
 {
 
-    //public event EventHandler OnAttackAttempt;
-
     [SerializeField] private GameInput gameInput;
 
     [SerializeField] private LayerMask interactLayerMask;
